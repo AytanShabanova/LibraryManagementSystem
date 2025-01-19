@@ -1,0 +1,16 @@
+services:
+  mysql_new:
+    container_name: LibraryManagementSystem
+    image: mysql:latest
+    ports:
+      - "5442:3306"
+    volumes:
+      - db_data_new:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: newrootpassword
+      MYSQL_DATABASE: LibraryManagementSystem
+      MYSQL_USER: bookService
+      MYSQL_PASSWORD: book010203
+
+volumes:
+  db_data_new:
