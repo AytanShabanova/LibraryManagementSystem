@@ -1,6 +1,6 @@
 package com.example.librarymanagementsystem.service.impl;
 
-import com.example.librarymanagementsystem.BookMapper;
+import com.example.librarymanagementsystem.mapstruct.BookMapper;
 import com.example.librarymanagementsystem.dto.request.BookRequest;
 import com.example.librarymanagementsystem.dto.response.BookResponse;
 import com.example.librarymanagementsystem.exception.BookAlreadyExistException;
@@ -25,10 +25,10 @@ public class BookServiceImpl implements BookServiceInter {
     @Override
     public void createBook(BookRequest bookRequest) {
         Book book=bookMapper.bookRequestToBook(bookRequest);
-
-        if(bookRepository.existsById(book.getId())){
-            throw new BookAlreadyExistException("Book already exists");
+        if (bookRepository.existsByIsbn(bookRequest.getIsbn())) {
+            throw new BookAlreadyExistException("Book with this ISBN already exists");
         }
+
         bookRepository.save(book);
     }
 
@@ -61,11 +61,16 @@ public class BookServiceImpl implements BookServiceInter {
 
     @Override
     public List<BookResponse> getBooksByAuthor(String author) {
-        return List.of();
+        List<Book>books=bookRepository.findBookByAuthor(author).orElseThrow(()->new BookNotFoundException("Book not found"));
+
+
+        return Collections.singletonList(bookMapper.bookToBookResponse((Book) books));
     }
 
     @Override
     public BookResponse getBookByName(String name) {
-        return null;
+        Book book=bookRepository.findBookByName(name).orElseThrow(()->new BookNotFoundException("Book not found"));
+
+        return bookMapper.bookToBookResponse(book);
     }
 }
