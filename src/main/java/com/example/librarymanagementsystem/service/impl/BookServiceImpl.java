@@ -56,7 +56,8 @@ public class BookServiceImpl implements BookServiceInter {
     @Override
     public List<BookResponse> getAllBooks() {
         List<Book>bookList=bookRepository.findAll();
-        return Collections.singletonList(bookMapper.bookToBookResponse((Book) bookList));
+
+        return bookMapper.bookListToBookResponse(bookList);
     }
 
     @Override
@@ -64,7 +65,7 @@ public class BookServiceImpl implements BookServiceInter {
         List<Book>books=bookRepository.findBookByAuthor(author).orElseThrow(()->new BookNotFoundException("Book not found"));
 
 
-        return Collections.singletonList(bookMapper.bookToBookResponse((Book) books));
+        return bookMapper.bookListToBookResponse(books);
     }
 
     @Override
