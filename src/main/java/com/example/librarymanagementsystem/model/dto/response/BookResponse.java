@@ -1,4 +1,4 @@
-package com.example.librarymanagementsystem.dto.response;
+package com.example.librarymanagementsystem.model.dto.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

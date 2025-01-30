@@ -1,4 +1,4 @@
-package com.example.librarymanagementsystem.dto.request;
+package com.example.librarymanagementsystem.model.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

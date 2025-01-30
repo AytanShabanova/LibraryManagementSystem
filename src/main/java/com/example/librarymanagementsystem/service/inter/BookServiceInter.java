@@ -1,7 +1,7 @@
 package com.example.librarymanagementsystem.service.inter;
 
-import com.example.librarymanagementsystem.dto.request.BookRequest;
-import com.example.librarymanagementsystem.dto.response.BookResponse;
+import com.example.librarymanagementsystem.model.dto.request.BookRequest;
+import com.example.librarymanagementsystem.model.dto.response.BookResponse;
 
 import java.util.List;
 

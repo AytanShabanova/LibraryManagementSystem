@@ -1,8 +1,8 @@
 package com.example.librarymanagementsystem.service.impl;
 
 import com.example.librarymanagementsystem.mapstruct.BookMapper;
-import com.example.librarymanagementsystem.dto.request.BookRequest;
-import com.example.librarymanagementsystem.dto.response.BookResponse;
+import com.example.librarymanagementsystem.model.dto.request.BookRequest;
+import com.example.librarymanagementsystem.model.dto.response.BookResponse;
 import com.example.librarymanagementsystem.exception.BookAlreadyExistException;
 import com.example.librarymanagementsystem.exception.BookNotFoundException;
 import com.example.librarymanagementsystem.model.entity.Book;
@@ -11,7 +11,6 @@ import com.example.librarymanagementsystem.service.inter.BookServiceInter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

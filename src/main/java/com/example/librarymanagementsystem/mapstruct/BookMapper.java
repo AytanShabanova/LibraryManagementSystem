@@ -1,14 +1,13 @@
 package com.example.librarymanagementsystem.mapstruct;
 
-import com.example.librarymanagementsystem.dto.request.BookRequest;
-import com.example.librarymanagementsystem.dto.response.BookResponse;
+import com.example.librarymanagementsystem.model.dto.request.BookRequest;
+import com.example.librarymanagementsystem.model.dto.response.BookResponse;
 import com.example.librarymanagementsystem.model.entity.Book;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
-import java.lang.annotation.Target;
 import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
